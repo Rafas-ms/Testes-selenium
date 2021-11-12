@@ -5,28 +5,30 @@
  */
 package atividadefelipe;
 
-
+import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
+/**
+ *
+ * @author Rafael Martins
+ */
 public class TestePesquisaGoogle {
-public static void main(String[] args) {
-WebDriver driver = new HtmlUnitDriver();
 
-driver.get("http://www.google.com");
+    public static void main(String[] args) {
 
-WebElement element = driver.findElement(By.name("q"));
+        File file = new File("C:\\Users\\Rafael Martins\\Desktop\\jar_files\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
+        WebDriver driver = new ChromeDriver();
 
-element.sendKeys("Teste de pesquisa");
+        driver.get("https://www.google.com.br/");
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys("Selenium");
+        element.submit();
 
-element.submit();
+        driver.close();
+    }
 
-System.out.println("O título da página é: " + driver.getTitle());
-
-driver.quit();
 }
-}
-
-//

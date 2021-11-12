@@ -3,28 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package atividadefelipe;
-
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class PreencherDados {
-
-    public static void main(String[] args) {
-        
-        File file = new File("C:\\Users\\Rafael Martins\\Desktop\\jar_files\\chromedriver.exe");
+public class TestePreencherDados {
+    
+@Test
+public void teste(){
+    try {
+     File file = new File("C:\\Users\\Rafael Martins\\Desktop\\jar_files\\chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.inflectra.com/CustomerArea/Register.aspx");
         
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         WebElement email = driver.findElement(By.id("txtEmailAddress"));
         email.sendKeys("rafaela.cruz.mor.2021");
@@ -63,9 +63,12 @@ public class PreencherDados {
         submit.click();
         
         Assertions.assertEquals("The Email Address is not valid", driver.findElement(By.xpath("//*[@id=\"frmRegister\"]/div[1]/div/small[2]")).getText());
-        
 
+       
     }
+    catch (Exception e){
+        System.out.println(e.getMessage());
     }
-    
 
+}
+}

@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atividadefelipe;
-
+// Autor: Rafael Martins Silva
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,7 +17,7 @@ public class TesteTituloGoogle {
         element.submit();
         String titulo = driver.getTitle();
         
-        if (titulo.equalsIgnoreCase("Teste de pesquisa - Pesquisa Google")) {
+        if (titulo.equalsIgnoreCase("Teste de pesquisa - Pesquisa Google")) { // Retorna o título e se ele está de acordo com o esperado
             System.out.println("O título da página é: " + titulo + ". E está correto!");
         } else {
             System.out.println("O título está incorreto: " + titulo);

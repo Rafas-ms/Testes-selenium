@@ -1,5 +1,5 @@
 package atividadefelipe;
-
+// Autor: Rafael Martins Silva
 import java.io.File;
 import java.util.List;
 import org.openqa.selenium.By;
